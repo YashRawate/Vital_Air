@@ -131,57 +131,9 @@ aws configure
 
 pip install fastapi uvicorn boto3 numpy python-dotenv httpx
 
-### Step 3: Backend Files
-main.py – Backend server
+### Step 3: Run the Backend
 
-ml_processor.py – Heatmap generator using IDW
-
-data_processor.py – Data collector
-
-idw.py – IDW algorithm
-
-grid_generator.py – Creates grid points
-
-### Step 4: Frontend Files
-
-index.html – Main webpage
-
-app.js – Frontend logic
-
-styles.css – Styling
-
-### Step 5: Port Issue & Solution
-Port 3000 was blocked → Used Apache2 as reverse proxy.
-sudo apt install apache2
-sudo a2enmod proxy
-sudo a2enmod proxy_http
-
-ProxyPreserveHost On
-ProxyPass /api http://localhost:3000/api
-ProxyPassReverse /api http://localhost:3000/api
-
-### Step 6: Run the Server
 python -m uvicorn main:app --host 0.0.0.0 --port 3000
-# OR
-python main.py
-
-### Step 7: Access Website
-
-http://your-server-ip        (Apache serves on port 80)
-http://your-server-ip:3000   (Direct uvicorn access)
-
-🎯 Quick Commands to Remember
-
-# Start backend
-cd /home/ubuntu/vital-air
-python -m uvicorn main:app --host 0.0.0.0 --port 3000
-
-# Check Apache status
-sudo systemctl status apache2
-
-# Restart Apache if needed
-sudo systemctl restart apache2
-
 
 📢 Acknowledgements
 
